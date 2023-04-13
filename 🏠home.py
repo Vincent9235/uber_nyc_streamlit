@@ -11,6 +11,14 @@ import plotly.express as px
 st.title('Uber NYC January 2015')
 st.image('https://d3i4yxtzktqr9n.cloudfront.net/uber-sites/f452c7aefd72a6f52b36705c8015464e.jpg', caption='Uber logo')
 
+
+# Side bar
+with st.sidebar:
+    st.header('Informations on author')
+    st.write('Vincent Laurens')
+    st.write('Data Scientist at Bouygues Construction IT | Data Management student') 
+    st.write("""<div style="width:100%;text-align:center;"><a href="https://www.linkedin.com/in/vincentlaurenspro/" style="float:center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png" width="100%" height="50%"></img></a></div>""", unsafe_allow_html=True)
+    
 #Reading the data from the csv file and creating a dataframe
 path = "https://raw.githubusercontent.com/uber-web/kepler.gl-data/master/nyctrips/data.csv" 
 df = pd.read_csv(path, delimiter = ',')
