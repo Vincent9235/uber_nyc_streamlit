@@ -12,13 +12,13 @@ import plotly.express as px
 st.set_page_config(page_title='Uber NYC January 2015', page_icon='🚕', layout='centered', initial_sidebar_state='auto')
 # Title
 st.title('Uber NYC January 2015')
-st.image('https://www.grapheine.com/wp-content/uploads/uber-logo.jpg', caption='Uber logos')
+st.image('https://www.grapheine.com/wp-content/uploads/uber-logo.jpg')
 
 # Side bar
 with st.sidebar:
     st.header('Informations on author')
-    st.markdown('**Vincent Laurens**')
-    st.write('Data Scientist at Bouygues Construction IT | Data Management student') 
+    st.markdown('**Vincent Laurens💻**')
+    st.write('📈Data Scientist at Bouygues Construction IT | Data Management student🏫') 
     st.write("""<div style="width:100%;text-align:center;"><a href="https://www.linkedin.com/in/vincentlaurenspro" style="float:center"><img src="https://img.shields.io/badge/Vincent%20Laurens-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/vincentlaurenspro/%22" width="100%" height="50%"></img></a></div>""", unsafe_allow_html=True)
     
 #Reading the data from the csv file and creating a dataframe
@@ -32,7 +32,7 @@ st.subheader('Data preparation')
 st.write("I dont show you how I clean my data because it's not the purpose of my streamlit web app but you can use the following commands to clean your data:")
 st.code("df.dropna(), df.drop_duplicates(), df.describe(), df.info(), df.isnull().sum(), df.head()...")
 
-# Data preocessing with pandas
+# Data preproocessing with pandas
 #Transforming the date/time column to datetime format
 df['tpep_pickup_datetime'] = df['tpep_pickup_datetime'].map(pd.to_datetime)
 df['tpep_dropoff_datetime'] = df['tpep_dropoff_datetime'].map(pd.to_datetime)
@@ -58,19 +58,17 @@ def count_rows(rows):
 
 df_by_date = df.groupby('hour').apply(count_rows)
 
+
 # Data vizualisation 
 st.header('Data vizualisation')
-st.write('Here is a barplot of the number of trips by trip duration:')
 
+st.write('Here is a barplot of the number of trips by trip duration:')
 # Create histogram trace
 histogram_trace = go.Histogram(x=df.trip_duration, nbinsx=100, xbins=dict(start=0, end=100))
-
 # Create layout
 layout = go.Layout(title='Frequency by Trip Duration - Uber - January 2015', xaxis=dict(title='Trip Duration'), yaxis=dict(title='Frequency'))
-
 # Create figure
 fig = go.Figure(data=[histogram_trace], layout=layout)
-
 # Display plot in Streamlit
 st.plotly_chart(fig)
 
