@@ -11,5 +11,6 @@ To run app you can type in your terminal :
 ```sh
 streamlit run .\🏠home.py
 ```
+You also can have access to my app on [streamlit sharing](https://vincent9235-uber-nyc.streamlit.app/)
 ## Credits
 Made with ❤️ by **me**
